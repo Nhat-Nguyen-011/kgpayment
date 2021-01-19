@@ -73,7 +73,6 @@ paymentRawRouter.post("/noti", (req, res) => {
   console.log(result);
   result = JSON.parse('{"' + decodeURI(result.replace(/&/g, '","').replace(/=/g, '":"')) + '"}');
   console.log(result);
-  console.log("a");
   return res.send("OK");
 });
 
