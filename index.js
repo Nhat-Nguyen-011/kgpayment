@@ -68,8 +68,11 @@ paymentRawRouter.use(function (req, res, next) {
 });
 
 paymentRawRouter.post("/noti", (req, res) => {
+  let result = req.rawBody;
   console.log("SERVER RECEIVE VBANK PAYMENT NOTI");
-  console.log(req.rawBody);
+  console.log(result);
+  result = JSON.parse('{"' + decodeURI(result.replace(/&/g, '","').replace(/=/g, '":"')) + '"}');
+  console.log(result);
   return res.send("OK");
 });
 
